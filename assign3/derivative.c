@@ -1,27 +1,3 @@
-Last login: Wed Oct  4 18:46:49 on ttys000
-Pradeeps-MacBook-Pro:~ pradeepsingh$ ssh -l singh ophelia2
-singh@ophelia2's password: 
-Permission denied, please try again.
-singh@ophelia2's password: 
-Last login: Thu Oct  5 10:56:23 2017 from 130.191.127.117
-[singh@ophelia2 ~]$ ls
-assign1  assign2  assign3
-[singh@ophelia2 ~]$ cd assing3
--bash: cd: assing3: No such file or directory
-[singh@ophelia2 ~]$ cd assign3
-[singh@ophelia2 assign3]$ ls
-data.out  makefile  plot  plot.c
-[singh@ophelia2 assign3]$ vi plot.c
-
-
-
-
-
-
-
-
-
-
 /*
  * File Name: plot.c
  * Author: Pradeep Singh
@@ -51,7 +27,6 @@ data.out  makefile  plot  plot.c
                   Step 3 - $ gnuplot                         // open gnuplot
                   Step 4 - gnuplot> plot "filename" w lines  // plot using gnuplot
 */
-
 
 /* Following header files are included */
 
