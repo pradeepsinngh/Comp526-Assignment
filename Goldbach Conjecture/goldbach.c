@@ -125,7 +125,10 @@ _Bool isprime(int M){
              int *prime2 -- second prime number
  */
 
-void isGoldbach(integers[i], &reason[1][0], &reason[i][1], &reason[1][2]; //
+isGoldbach(integers[i], &reason[1][0], &reason[i][1], &reason[1][2]{
+
+
+}
 
 void printResults(int N, int integers[N], int reason[N][3]);     //
 
