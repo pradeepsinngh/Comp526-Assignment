@@ -15,12 +15,28 @@
 #include <stdio.h>      // for printf() and scanf()
 
 /* Function declaration */
+
+/* Declaring function named isodd.
+ * This function tells whether the given integer is odd or not.
+ */
  
 _Bool isodd(int M);                                             //
 
+/* Declaring function named isprime.
+ * This function tells whether the given integer is prime or not.
+ */
+
 _Bool isprime(int M);                                           //
 
+/* Declaring function named isGoldbach.
+ * This function tells whether the given integer is Goldbach or not.
+ */
+
 void isGoldbach(int M, int *passfail, int *prime1, int *prime2); //
+
+/* Declaring function named printResults.
+ * This function is used to print.
+ */
 
 void printResults(int N, int integers[N], int reason[N][3]);     //
 
