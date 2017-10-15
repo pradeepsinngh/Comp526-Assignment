@@ -83,6 +83,62 @@ for (ii=0; ii<N; ii++){
   isGoldbach (integers[ii], &reason[ii][0], &reason[ii][1], &reason[ii][2]);
   
   }
+ 
+
+/* This function returns 1 if M is odd, otherwise 0.
+ * function: _Bool isodd(int M);
+ 
+             int M -- argument value
+ */
+ 
+_Bool isodd(int M){
+   
+   if (M % 2 == 0){
+     return 1;
+   }
+   else {
+    return 0;
+   }
+}
+
+/* This function returns 1 if M is prime, otherwise 0.
+ * function: _Bool isprime(int M);
+ 
+             int M -- argument value
+ */
+
+_Bool isprime(int M){
+  int R1=1, R2=M;
+  if (M > 1 && (M % R1 = 0) && (M % R2 = 0)){
+     return 1;
+    } else{
+      return 0;
+     }
+}
+ 
+/* This function returns 1 if M is prime, otherwise 0.
+ * function: void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
+ 
+             int M -- argument value
+             int *passfail -- reference to 0 or 1, depending upon whether M fail/ pass the test
+             int *prime1 -- first prime number
+             int *prime2 -- second prime number
+ */
+
+void isGoldbach(integers[i], &reason[1][0], &reason[i][1], &reason[1][2]; //
+
+void printResults(int N, int integers[N], int reason[N][3]);     //
+
+
+/* This function prints grid points and their derivative values in the file
+ * function: void printfnvals(FILE *fptr, int nvals, float xvals[], float fpvals[])
+         FILE *fptr      -- Pointer to filename for displaying output
+         int nvals       -- the size of the interior gridpoints
+         float xvals[]   -- point to the address of second index of gridpoint (input)
+         float fpvals[]  -- point to the address of second index (output)
+ */
+ 
+ 
   
  printResults(N,intergers,reasons);
  
