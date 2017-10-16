@@ -71,16 +71,19 @@ int main(){
 }
 
 void work (int N){
-int integers[N];
-int reason[N][3];
 
-ftpr = fopen("integers", );
-if (!ftpr) return;
+  int integers[N];
+  int reason[N][3];
 
-for (ii=0; ii<N; ii++){
-  fscanf(ftpr,"%d", &intergers[ii]);
+  ftpr = fopen("integers", );
+  if (!ftpr) return;
+
+  for (ii=0; ii<N; ii++){
+    fscanf(ftpr,"%d", &intergers[ii]);
   
   isGoldbach (integers[ii], &reason[ii][0], &reason[ii][1], &reason[ii][2]);
+   
+  printResults(N, integers, reasons)
   
   }
  
@@ -97,7 +100,7 @@ _Bool isodd(int M){
      return 1;
    }
    else {
-    return 0;
+     return 0;
    }
 }
 
@@ -110,10 +113,11 @@ _Bool isodd(int M){
 _Bool isprime(int M){
   int R1=1, R2=M;
   if (M > 1 && (M % R1 = 0) && (M % R2 = 0)){
-     return 1;
-    } else{
-      return 0;
-     }
+    return 1;
+  } 
+  else{
+    return 0;
+  }
 }
  
 /* This function returns 1 if M is prime, otherwise 0.
@@ -130,7 +134,7 @@ isGoldbach(integers[i], &reason[1][0], &reason[i][1], &reason[1][2]{
 
 }
 
-void printResults(int N, int integers[N], int reason[N][3]);     //
+void printResults(int N, int integers[N], int reason[N][3])     //
 
 
 /* This function prints grid points and their derivative values in the file
@@ -142,14 +146,18 @@ void printResults(int N, int integers[N], int reason[N][3]);     //
  */
  
  
-  
- printResults(N,intergers,reasons);
+printResults(N,intergers[N],reasons[N][3]){
+       
+  int ii;    // Initalizing integer variable to count number of times loop will run
+
+  for(ii=0; ii<M; ii++){
+    i
+     fprintf(fptr, "%0.2f %0.2f \n", integers[ii], reason[ii]);   // Writing in the file
+  }
+}
  
  return;
  }
 
 
 // that's all folks
-
-
-
