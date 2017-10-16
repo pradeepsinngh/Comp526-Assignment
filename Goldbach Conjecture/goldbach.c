@@ -160,4 +160,4 @@ printResults(N,intergers[N],reasons[N][3]){
  }
 
 
-// that's all folks
+// that's all folks.
