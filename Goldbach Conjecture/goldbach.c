@@ -169,7 +169,7 @@ printResults(N,intergers[N],reasons[N][3]){
      fprintf(fptr, "%0.2f %0.2f \n", integers[ii], reason[ii]);   // Writing in the file
   }
 }
- 
+           
  return;
  }
 
