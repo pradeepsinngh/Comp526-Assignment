@@ -131,6 +131,20 @@ _Bool isprime(int M){
 
 isGoldbach(integers[i], &reason[1][0], &reason[i][1], &reason[1][2]{
 
+M = 10;
+
+for(ii = 2; ii < M/2; ii++){
+  if(isprime(ii) && isprime(M-ii)){
+    
+    *prime1 = ii;
+    *prime2 = M-11;
+    *passfail = 3;
+    return;
+  }
+}
+
+*passfail = 0;
+return;
 
 }
 
