@@ -173,5 +173,4 @@ printResults(N,intergers[N],reasons[N][3]){
  return;
  }
 
-
 // that's all folks.
