@@ -14,7 +14,7 @@ int main(void) {
 
   printf("let's add some numbers. Please\n");
   printf("enter some numbers, CTL-D to quit:\n\n");
-
+   
 /* remember to say "address of" with scanf() */
 
   icount = 0;
