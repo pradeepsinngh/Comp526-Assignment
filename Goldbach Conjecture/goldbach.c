@@ -148,9 +148,6 @@ return;
 
 }
 
-void printResults(int N, int integers[N], int reason[N][3])     //
-
-
 /* This function prints grid points and their derivative values in the file
  * function: void printfnvals(FILE *fptr, int nvals, float xvals[], float fpvals[])
          FILE *fptr      -- Pointer to filename for displaying output
@@ -158,15 +155,13 @@ void printResults(int N, int integers[N], int reason[N][3])     //
          float xvals[]   -- point to the address of second index of gridpoint (input)
          float fpvals[]  -- point to the address of second index (output)
  */
- 
- 
-printResults(N,intergers[N],reasons[N][3]){
-       
+           
+void printResults(int N, int intergers[N],int reasons[N][3]){
+  
   int ii;    // Initalizing integer variable to count number of times loop will run
 
-  for(ii=0; ii<M; ii++){
-    i
-     fprintf(fptr, "%0.2f %0.2f \n", integers[ii], reason[ii]);   // Writing in the file
+  for(ii=0; ii<N; ii++){
+    fprintf("N = ", integers[ii], "" reason[ii]);   // Writing in the file
   }
 }
            
