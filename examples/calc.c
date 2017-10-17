@@ -38,7 +38,8 @@ int main(void) {
     }
     fsum += fnum;
   }                                                      */
-
+   
+  
   printf("\nthe final sum= %f\n", fsum);
 
 /* could be function call... */
