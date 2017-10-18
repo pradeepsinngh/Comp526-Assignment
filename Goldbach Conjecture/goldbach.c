@@ -54,10 +54,10 @@ int main(){
   int read;               //to read from file
   int count = 0;          //variable to count number of intergers in input file
  
-  FILE * ftpr;            //pointer to points to intergers in i/p file
-  ftpr = fopen("intergers","r"); // open "intergers" file for reading
+  FILE * fptr;            //pointer to points to intergers in i/p file
+  fptr = fopen("intergers","r"); // open "intergers" file for reading
  
-  if (!ftpr){              //see if file (intergers) is opening or not
+  if (!fptr){              //see if file (intergers) is opening or not
 	  
     print("\n Something is wrong! Could not open file\n");
     return(0);
@@ -131,10 +131,10 @@ _Bool isprime(int M){
 	
   if ((M!=2)&&(M!=3)){  // if the input is 2 or 3 is already a prime - no need to check
   
-    for( i = 2; i <= M/2 ; i++ ){
+    for( i = 2; i <= M/2 ; i++ )
       if ( !(M % i) )
         return 0;
-    }
+   }
   return 1;
 }
 /* This function returns 1 if M is prime, otherwise 0.
@@ -188,7 +188,7 @@ void isGoldbach(int M, int *passfail, int *prime1, int *prime2 ){
          float fpvals[]  -- point to the address of second index (output)
  */
            
-void printResults(int N, int intergers[N],int reasons[N][3]){
+void printResults(int N, int intergers[N], int reasons[N][3]){
   
   system("clear \n");
   printf(" This is the result of Goldbach test  \n");
