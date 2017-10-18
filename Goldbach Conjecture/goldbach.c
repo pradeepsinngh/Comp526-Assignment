@@ -14,7 +14,7 @@
 
 #include <stdio.h>      // for printf() and scanf()
 #include <math.h>       // for math functions
-#include <stdlib.h>
+#include <stdlib.h>     // see if you need this file.
 
 /* Function declaration */
 
