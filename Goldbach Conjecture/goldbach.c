@@ -13,6 +13,8 @@
 /* Include following header files */
 
 #include <stdio.h>      // for printf() and scanf()
+#include <math.h>       // for math functions
+#include <stdlib.h>
 
 /* Function declaration */
 
@@ -20,57 +22,62 @@
  * This function tells whether the given integer is odd or not.
  */
  
-_Bool isodd(int M);                                             //
+_Bool isodd(int M);
 
 /* Declaring function named isprime.
  * This function tells whether the given integer is prime or not.
  */
 
-_Bool isprime(int M);                                           //
+_Bool isprime(int M);
 
 /* Declaring function named isGoldbach.
  * This function tells whether the given integer is Goldbach or not.
  */
 
-void isGoldbach(int M, int *passfail, int *prime1, int *prime2); //
+void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
 
 /* Declaring function named printResults.
  * This function is used to print.
  */
 
-void printResults(int N, int integers[N], int reason[N][3]);     //
+void printResults(int N, int integers[N], int reason[N][3]);
 
 /* Main() starts here */
 
 int main(){
-  ftpr = fopen();
-  
-  /* make end != EOF, and initialize sum to zero... */
-  float fnum, fsum=0;
-  int end=EOF+1, icount;
-  float avg;
-
-  printf("let's add some numbers. Please\n");
-  printf("enter some numbers, CTL-D to quit:\n\n");
-
-/* remember to say "address of" with scanf() */
-
-  icount = 0;
-  end = scanf("%f", &fnum);
-  while (end != EOF) {
-    printf("running sum: %f+%f=", fsum, fnum);
-    fsum += fnum;
-    icount++;
-    printf("%f\n", fsum);
-    end = scanf("%f", &fnum);
+  int *reason;            //pointer to array that holds condition for goldbach conjecture
+  int *intergers;         //pointer to array that holds input data
+  int *prime1, *prime2;   //pointer to array that stores 2 numbers that when added give's 
+                          //an even number which is goldbach
+  int *passfail;          //pointer to hold two values (1 or 0) depending upon given input
+                          //number passes/fails the goldbach test
+  int read;               //to read from file
+  int count = 0;          //variable to count number of intergers in input file
+ 
+  FILE * ftpr;            //pointer to points to intergers in i/p file
+  ftpr = fopen("intergers","r"); // open "intergers" file for reading
+ 
+  if (!ftpr)              //see if file (intergers) is opening or not
+  {
+    print("\n Something is wrong! Could not open file\n");
+    return(0);
   }
+ 
+/* While loop to count number of positive numbers in i/p file (intergers) */
+ 
+  while(fscanf(fptr,"%d",&read) != EOF)
+        {
+                count++;
+        }
+        fclose(fptr);      // close the file
 
-  fclose (ftpr);
-  work(N);
+
+  work(counter);          // call to work function
+ 
   return;
 }
 
-void work (int N){
+int work (int N){
 
   int integers[N];
   int reason[N][3];
