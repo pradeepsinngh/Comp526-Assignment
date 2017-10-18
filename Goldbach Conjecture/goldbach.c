@@ -81,19 +81,22 @@ int work (int N){
 
   int integers[N];
   int reason[N][3];
+  int i;
 
-  ftpr = fopen("integers", );
-  if (!ftpr) return;
+  FILE *fptr;
+  fptr = fopen("integers","r");
 
-  for (ii=0; ii<N; ii++){
-    fscanf(ftpr,"%d", &intergers[ii]);
-  
-  isGoldbach (integers[ii], &reason[ii][0], &reason[ii][1], &reason[ii][2]);
-   
-  printResults(N, integers, reasons)
-  
+  for (i = 0 ; i < N ; i++){
+    
+    fscanf(fptr, "%d", &integers[i]);
+    isGoldbach(integers[i],&reason[i][0],&reason[i][1],&reason[i][2]);
   }
  
+  fclose(fptr);
+  printResults(N, integers, reason);
+ 
+return 0;
+}
 
 /* This function returns 1 if M is odd, otherwise 0.
  * function: _Bool isodd(int M);
@@ -102,13 +105,19 @@ int work (int N){
  */
  
 _Bool isodd(int M){
-   
-   if (M % 2 == 0){
-     return 1;
-   }
-   else {
-     return 0;
-   }
+
+/* inputs:
+     M     -- integer to be tested
+     return values:
+           If M is odd then return '1' otherwise return '0'
+  */
+
+        int result;
+        result = M % 2;
+        if (result)
+                return 1;
+        else
+                return 0;
 }
 
 /* This function returns 1 if M is prime, otherwise 0.
@@ -117,16 +126,25 @@ _Bool isodd(int M){
              int M -- argument value
  */
 
-_Bool isprime(int M){
-  int R1=1, R2=M;
-  if (M > 1 && (M % R1 = 0) && (M % R2 = 0)){
-    return 1;
-  } 
-  else{
-    return 0;
-  }
-}
+_Bool isprime(int M)
+{
  
+/* inputs:
+     M     -- integer to be tested
+     return values:
+          
+          If M is not prime then return '0' otherwise return '1'
+*/
+       _Bool result=1;
+        int i;
+        if ((M!=2)&&(M!=3)) // if the input is 2 or 3 is already a prime - no need to check
+        {
+                for( i = 2; i <= M/2 ; i++ )
+                        if ( !(M % i) )
+                                return 0;
+        }
+        return 1;
+}
 /* This function returns 1 if M is prime, otherwise 0.
  * function: void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
  
@@ -136,23 +154,42 @@ _Bool isprime(int M){
              int *prime2 -- second prime number
  */
 
-isGoldbach(integers[i], &reason[1][0], &reason[i][1], &reason[1][2]{
+void isGoldbach(int M, int *passfail, int *prime1, int *prime2 )
+{
+if (M < 3)//First test of the Goldbach, if the input is less than 3, passfail[0] is 1 and Goldbach test is successful
+        {
+                *passfail = 1;
 
-M = 10;
 
-for(ii = 2; ii < M/2; ii++){
-  if(isprime(ii) && isprime(M-ii)){
-    
-    *prime1 = ii;
-    *prime2 = M-11;
-    *passfail = 3;
-    return;
-  }
-}
- 
-*passfail = 0;
-return;
+        }
+        else if ( isodd(M) ) //if the number is odd so it goes for second condition and passfail[0] (reason) is 2 and goldbach test is successful
+        {
+                *passfail= 2;
 
+
+        }
+        else if(!isodd(M)) // Goldbach shoud test to see if two prime number exist to satisfy the condition or not
+        {
+                int i;
+
+
+                for ( i = 2; i <= (M/2); i++)
+                {
+                        if(isprime(i) && isprime( M-i))
+                        {
+
+                                        *passfail = 3;
+                                        *prime1= i;
+                                        *prime2 = M-i;
+
+
+                        }
+
+                }
+        }
+        // When we are here it means that the Goldbach is not satisfied so it should be finished and return with 0
+	else
+       		*passfail=0;
 }
 
 /* This function prints grid points and their derivative values in the file
@@ -165,14 +202,35 @@ return;
            
 void printResults(int N, int intergers[N],int reasons[N][3]){
   
-  int ii;    // Initalizing integer variable to count number of times loop will run
+ system("clear \n");
+        printf(" This is the result of Goldbach test  \n");
+        printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
+        printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
 
-  for(ii=0; ii<N; ii++){
-    fprintf("N = ", integers[ii], "" reason[ii]);   // Writing in the file
-  }
+        printf(" input                Result\n");
+        printf(" ------      -------------------------- \n\n");
+
+        int i;
+        for (i=0; i<N; i++)
+        {
+                if (reason[i][0] == 0) // in case the Goldbach test is not satisfied 
+                {
+                        printf ("M = %g   is not satisfied by Goldbach test \n", integers[i]);
+                }
+                else
+                {
+                        if ( reason[i][0] == 1 )
+                                printf ("M = %d, is less than 3   (is Goldbach) \n", (int)integers[i]);
+                        else if ( reason[i][0] == 2 )
+                                printf ("M = %d, is odd           (is Goldbach) \n", (int)integers[i]);
+                        else if ( reason[i][0] == 3 )
+                                printf ("M = %d  = %d + %d        (the sum of primes, is Goldbach) \n", (int)integers[i], reason[i][1], reason[i][2] );
+                        
+                }
+        }
+
+
 }
-           
- return;
- }
+
 
 // that's all folks.
