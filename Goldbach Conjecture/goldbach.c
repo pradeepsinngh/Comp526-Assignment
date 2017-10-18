@@ -57,20 +57,20 @@ int main(){
   FILE * ftpr;            //pointer to points to intergers in i/p file
   ftpr = fopen("intergers","r"); // open "intergers" file for reading
  
-  if (!ftpr)              //see if file (intergers) is opening or not
-  {
+  if (!ftpr){              //see if file (intergers) is opening or not
+	  
     print("\n Something is wrong! Could not open file\n");
     return(0);
   }
  
 /* While loop to count number of positive numbers in i/p file (intergers) */
  
-  while(fscanf(fptr,"%d",&read) != EOF)
-        {
-                count++;
-        }
-        fclose(fptr);      // close the file
-
+  while(fscanf(fptr,"%d",&read) != EOF){
+  
+    count++;
+  }
+  
+  close(fptr);      // close the file
 
   work(counter);          // call to work function
  
@@ -89,10 +89,12 @@ int work (int N){
   for (i = 0 ; i < N ; i++){
     
     fscanf(fptr, "%d", &integers[i]);
+	  
     isGoldbach(integers[i],&reason[i][0],&reason[i][1],&reason[i][2]);
   }
  
   fclose(fptr);
+	
   printResults(N, integers, reason);
  
 return 0;
@@ -106,18 +108,14 @@ return 0;
  
 _Bool isodd(int M){
 
-/* inputs:
-     M     -- integer to be tested
-     return values:
-           If M is odd then return '1' otherwise return '0'
-  */
-
-        int result;
-        result = M % 2;
-        if (result)
-                return 1;
-        else
-                return 0;
+  int result;
+  result = M % 2;
+	
+  if (result)
+    return 1;
+  else
+    return 0;
+	
 }
 
 /* This function returns 1 if M is prime, otherwise 0.
@@ -126,24 +124,18 @@ _Bool isodd(int M){
              int M -- argument value
  */
 
-_Bool isprime(int M)
-{
+_Bool isprime(int M){
  
-/* inputs:
-     M     -- integer to be tested
-     return values:
-          
-          If M is not prime then return '0' otherwise return '1'
-*/
-       _Bool result=1;
-        int i;
-        if ((M!=2)&&(M!=3)) // if the input is 2 or 3 is already a prime - no need to check
-        {
-                for( i = 2; i <= M/2 ; i++ )
-                        if ( !(M % i) )
-                                return 0;
-        }
-        return 1;
+  _Bool result=1;
+  int i;
+	
+  if ((M!=2)&&(M!=3)){  // if the input is 2 or 3 is already a prime - no need to check
+  
+    for( i = 2; i <= M/2 ; i++ ){
+      if ( !(M % i) )
+        return 0;
+    }
+  return 1;
 }
 /* This function returns 1 if M is prime, otherwise 0.
  * function: void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
@@ -154,42 +146,38 @@ _Bool isprime(int M)
              int *prime2 -- second prime number
  */
 
-void isGoldbach(int M, int *passfail, int *prime1, int *prime2 )
-{
-if (M < 3)//First test of the Goldbach, if the input is less than 3, passfail[0] is 1 and Goldbach test is successful
-        {
-                *passfail = 1;
+void isGoldbach(int M, int *passfail, int *prime1, int *prime2 ){
+
+  if (M < 3){//First test of the Goldbach, if the input is less than 3, passfail[0] is 1 and Goldbach test is successful
+	
+    *passfail = 1;
+
+  }
+  else if ( isodd(M) ){ //if the number is odd so it goes for second condition and passfail[0] (reason) is 2 and goldbach test is successful
+        
+    *passfail= 2;
+
+  }
+  else if(!isodd(M)){ // Goldbach shoud test to see if two prime number exist to satisfy the condition or not
+
+    int i;
+  
+    for ( i = 2; i <= (M/2); i++){
+
+      if(isprime(i) && isprime( M-i)){
+                   
+        *passfail = 3;
+        *prime1= i;
+        *prime2 = M-i;
 
 
-        }
-        else if ( isodd(M) ) //if the number is odd so it goes for second condition and passfail[0] (reason) is 2 and goldbach test is successful
-        {
-                *passfail= 2;
-
-
-        }
-        else if(!isodd(M)) // Goldbach shoud test to see if two prime number exist to satisfy the condition or not
-        {
-                int i;
-
-
-                for ( i = 2; i <= (M/2); i++)
-                {
-                        if(isprime(i) && isprime( M-i))
-                        {
-
-                                        *passfail = 3;
-                                        *prime1= i;
-                                        *prime2 = M-i;
-
-
-                        }
-
-                }
-        }
+      }
+    }
+  }
         // When we are here it means that the Goldbach is not satisfied so it should be finished and return with 0
-	else
-       		*passfail=0;
+  else
+	  
+    *passfail=0;
 }
 
 /* This function prints grid points and their derivative values in the file
