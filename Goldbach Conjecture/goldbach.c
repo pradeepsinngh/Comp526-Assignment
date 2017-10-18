@@ -190,34 +190,33 @@ void isGoldbach(int M, int *passfail, int *prime1, int *prime2 ){
            
 void printResults(int N, int intergers[N],int reasons[N][3]){
   
- system("clear \n");
-        printf(" This is the result of Goldbach test  \n");
-        printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
-        printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
+  system("clear \n");
+  printf(" This is the result of Goldbach test  \n");
+  printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n");
+  printf(" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ \n\n");
 
-        printf(" input                Result\n");
-        printf(" ------      -------------------------- \n\n");
+  printf(" input                Result\n");
+  printf(" ------      -------------------------- \n\n");
 
-        int i;
-        for (i=0; i<N; i++)
-        {
-                if (reason[i][0] == 0) // in case the Goldbach test is not satisfied 
-                {
-                        printf ("M = %g   is not satisfied by Goldbach test \n", integers[i]);
-                }
-                else
-                {
-                        if ( reason[i][0] == 1 )
-                                printf ("M = %d, is less than 3   (is Goldbach) \n", (int)integers[i]);
-                        else if ( reason[i][0] == 2 )
-                                printf ("M = %d, is odd           (is Goldbach) \n", (int)integers[i]);
-                        else if ( reason[i][0] == 3 )
-                                printf ("M = %d  = %d + %d        (the sum of primes, is Goldbach) \n", (int)integers[i], reason[i][1], reason[i][2] );
+  int i;
+  for (i=0; i<N; i++){
+  	  
+    if (reason[i][0] == 0){ // in case the Goldbach test is not satisfied 
+                
+      printf ("M = %g   is not satisfied by Goldbach test \n", integers[i]);
+    
+    }
+    else{
+       
+      if ( reason[i][0] == 1 )
+        printf ("M = %d, is less than 3   (is Goldbach) \n", (int)integers[i]);
+       else if ( reason[i][0] == 2 )
+         printf ("M = %d, is odd           (is Goldbach) \n", (int)integers[i]);
+       else if ( reason[i][0] == 3 )
+         printf ("M = %d  = %d + %d        (the sum of primes, is Goldbach) \n", (int)integers[i], reason[i][1], reason[i][2] );
                         
-                }
-        }
-
-
+    }
+  }
 }
 
 
