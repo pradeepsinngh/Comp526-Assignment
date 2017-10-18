@@ -32,7 +32,8 @@ _Bool isprime(int M);
 
 /* Declaring function named isGoldbach.
  * This function tells whether the given integer is Goldbach or not.
- */
+ */ 
+
 
 void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
 
