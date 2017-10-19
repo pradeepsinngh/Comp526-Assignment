@@ -1,47 +1,214 @@
-/*
+//*
  * File Name: goldbach.c
  * Author: Pradeep Singh
  * Date: 10/14/2017
  * Language: C
  * Purpose: To check Goldbach Conjecture for a list of positive integers.
  * Description:
- 
- * Program usage is as:
- 
- */
+                1. The program "goldbach.c" takes a input file, which consist of
+                   positive integers and tell's whether the given input numbers
+                   are goldbach or not.
+
+                2. The main() reads the input file named "integers" and keep(store)
+                   a count of number of integers available to test.
+
+                3. Then, function work() (a helper routine) again reads the file and
+                   store the numbers in an array format: integers[N].
+
+                4. Function isGoldbach() tells the caller about whether the given interger M
+                   fails or passes the Goldbach test.
+
+                5. Other functions like isodd(), isprime() are also used to determine
+                   whether the given number is goldbach or not. Their usage is described below.
+
+                6. Then, function printResults() is called from helper routine, which
+                   prints the result for every integer as: "pass" or "fail".
+
+                7. If the result for a number is "pass", the reason for which it satisfies
+                   the Goldbach test is also printed. Moreover, if the reason is "sum of 2 primes",
+                   then the 2 primes are also printed.
+
+  * Program usage is as:
+
+                      Step1: make             // complies code
+                      Step2: ./goldbach
+
+  */
 
 /* Include following header files */
 
 #include <stdio.h>      // for printf() and scanf()
 #include <math.h>       // for math functions
-#include <stdlib.h>     // see if you need this file.
+#include <stdlib.h>
 
 /* Function declaration */
 
-/* Declaring function named isodd.
+/* Declaring function named "isodd".
  * This function tells whether the given integer is odd or not.
  */
- 
+
 _Bool isodd(int M);
 
-/* Declaring function named isprime.
+/* Declaring function named "isprime".
  * This function tells whether the given integer is prime or not.
  */
 
+
 _Bool isprime(int M);
 
-/* Declaring function named isGoldbach.
+/* Declaring function named "isGoldbach".
  * This function tells whether the given integer is Goldbach or not.
- */ 
-
+ */
 
 void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
 
-/* Declaring function named printResults.
- * This function is used to print.
+/* Declaring function named "printResults".
+ * This function is used to print the result.
  */
 
 void printResults(int N, int integers[N], int reason[N][3]);
+
+/* Declaring function named "work".
+ * It's an helper routine, which is gonna help main() in conducting
+ * Goldbach test.
+ */
+
+int work(int N);
+
+/* ------------------------------------------------------------------------- */
+
+/* Main() starts here */
+
+int main(void){
+
+  int *reason;            //pointer to array that holds condition for goldbach conjecture
+  int *integers;          //pointer to array that holds input data
+  int *prime1, *prime2;   //pointer to array that stores 2 numbers that when added give's
+                          //an even number which is goldbach
+  int *passfail;          //pointer to hold two values (1 or 0) depending upon whether the
+                          //given input number passes/fails the goldbach test
+  int read;               //to read from file
+  int count = 0;          //variable to count number of integers in input file
+
+  FILE * fptr;            //pointer to points to intergers in i/p file
+  fptr = fopen("integers","r"); // open "integers" file for reading
+
+  if (!fptr){              //check, if the file (intergers) is opening or not
+
+    printf("\n Something is wrong! Could not open file\n");
+    return(0);
+  }
+
+/* While loop to count number of positive numbers in i/p file (intergers) */
+
+  while(fscanf(fptr,"%d",&read) != EOF){
+
+    count++;
+  }
+
+ }
+
+  close(fptr);            // close the file
+
+  work(count);            // call to work function
+
+  return;
+}
+
+
+
+/*------------------ Function's definition starts from here---------------------------- */
+
+/* work(N) - Helper function for reading and stroing the input
+             numbers in an array: integer[N]
+
+             It also calls the isGoldbach() and printResults() for
+             processing and printing the results.
+
+             Note: There are many calls to isGoldbach(), but there is
+             only call to printResults().
+
+            Input: N -- Number of integers to be tested.
+
+            Output: Prints the result, whether the given number is
+                    goldbach or not, along with the reason.
+ */
+
+
+int work (int N){
+
+  int integers[N];
+  int reason[N][3];
+  int i;
+
+  FILE *fptr;
+  fptr = fopen("integers","r");
+
+  for (i = 0 ; i < N ; i++){
+
+    fscanf(fptr, "%d", &integers[i]);
+
+    isGoldbach(integers[i],&reason[i][0],&reason[i][1],&reason[i][2]);
+  }
+
+  fclose(fptr);
+
+  printResults(N, integers, reason);
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Main() starts here */
 
