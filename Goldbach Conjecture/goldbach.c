@@ -206,8 +206,107 @@ _Bool isprime(int M){
 }
 
 
+/* function: void isGoldbach(int M, int *passfail, int *prime1, int *prime2);
+
+             int M -- argument value
+             int *passfail -- reference to 0 or 1, depending upon whether M fail/ pass the test
+
+             *passfail = 1, if M < 3
+             *passfail = 2, if M is odd
+             *passfail = 3, if M is sum of 2 primes
+
+             If, *passfail = 3, therefore respective 2 primes are gievn by:
+             int *prime1 -- first prime number
+             int *prime2 -- second prime number
+ */
+
+void isGoldbach(int M, int *passfail, int *prime1, int *prime2 ){
+
+  if (M < 3){                    //if M is less than 3, passfail[0] is 1 and the number is Goldbach
+
+    *passfail = 1;
+
+  }
+  else if ( isodd(M) ){           //if M is odd, then passfail[0] = 2 and the number is Goldbach
+
+    *passfail= 2;
+
+  }
+  else if(!isodd(M)){
+    int i;
+
+/* Loop to see if 2 prime numbers exist, which when added gives an goldbach number or not. */
+
+    for ( i = 2; i <= (M/2); i++){
+
+      if(isprime(i) && isprime( M-i)){
+
+        *passfail = 3;
+        *prime1= i;
+        *prime2 = M-i;
+
+      }
+    }
+  }
+
+  else      // Otherwise, number didn't passed the test. Therefore, it's not an Goldbach.
+
+    *passfail=0;      // return 0;
+}
 
 
+
+/* function to print the number and it's result (whether it's goldbach or not)
+
+   void printfResults(int N, int integers[N], int reason[N][3]
+
+   Inputs:
+          int N: number of integers to be tested
+          int integers[N]: Number to be tested
+          int reason[N][3]: reason for the result
+
+         If,
+           reason = 1, M is less than 3
+           reason = 2, M is odd
+           reason = 3, M is sum of 2 primes
+
+  Output: Print's the result on the screen. Tells whether the number is Goldbach or not.
+
+          If it's Goldbach, then it also prints the reason for the same (eg: M is less than 3 etc).
+
+           Otherwise, just print's that the number failed the test and it is not a Goldbach.
+ */
+
+void printResults(int N, int integers[N],int reason[N][3]){
+
+  system("clear \n");
+  printf(" Following numbers passes/ fails the Goldbach test: \n");
+  printf("\n\n");
+
+  printf("Number    Reason                   Result\n");
+  printf("-----    ---------         -------------------------- \n\n");
+
+  int i;
+  for (i=0; i<N; i++){
+
+    if (reason[i][0] == 0){ // If this happens, that means the number doesn't
+                            // satisfy Goldbach test.(which apparently will never happen)
+
+      printf ("M = %g does not satisfy Goldbach test \n", integers[i]);
+
+    }
+    else{
+
+      if ( reason[i][0] == 1 )
+        printf ("M = %d, is less than 3   (is Goldbach) \n", (int)integers[i]);
+       else if ( reason[i][0] == 2 )
+         printf ("M = %d, is odd           (is Goldbach) \n", (int)integers[i]);
+       else if ( reason[i][0] == 3 )
+         printf ("M = %d  = %d + %d        (the sum of primes, is Goldbach) \n", (int)integers[i], reason[i][1], reason[i][2] );
+
+    }
+  }
+}
 
 
 
