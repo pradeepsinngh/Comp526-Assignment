@@ -158,6 +158,52 @@ int work (int N){
 return 0;
 }
 
+/* This function returns 1 if M is odd, otherwise 0.
+ * function: _Bool isodd(int M);
+
+        Input: int M -- argument value
+
+        Output: 1 (If argument is odd)
+                0 (If argument is not odd)
+*/
+
+_Bool isodd(int M){
+
+  int result;
+  result = M % 2;
+
+  if (result)
+    return 1;
+  else
+    return 0;
+
+}
+
+
+
+/* This function returns 1 if M is prime, otherwise 0.
+ * function: _Bool isprime(int M);
+
+        Input: int M -- argument value
+
+        Output: 1 (If argument is prime)
+                0 (If argument is not prime)
+
+ */
+
+_Bool isprime(int M){
+
+  _Bool result=1;
+  int i;
+
+  if ((M!=2)&&(M!=3)){  // if the input is 2 or 3 is already a prime - no need to check
+
+    for( i = 2; i <= M/2 ; i++ )
+      if ( !(M % i) )
+        return 0;
+  }
+  return 1;
+}
 
 
 
