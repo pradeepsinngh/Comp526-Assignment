@@ -1,4 +1,4 @@
-//*
+/*
  * File Name: goldbach.c
  * Author: Pradeep Singh
  * Date: 10/14/2017
