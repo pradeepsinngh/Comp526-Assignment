@@ -1,4 +1,4 @@
- afunx.F90 -- James Otto, 10/31/16
+!
 ! DESCRIPTION -- this early program passes float arrays of
 !                o N gridpoints
 !                o N function evaluations
