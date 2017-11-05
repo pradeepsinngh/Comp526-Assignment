@@ -1,4 +1,5 @@
-!                test getting and conversion
+!                
+!                Test getting and conversion
 !                of command line arguments in GNU Fortran
 ! to be run as:
 !                    $ getargu chstring integer float
