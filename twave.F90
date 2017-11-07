@@ -4,12 +4,7 @@
 ! Date: 11/3/2017
 ! Language: Fortran
 ! Description:
-!
-
-
-
 ! Program usage is as -
-
 
 program twave
 
@@ -20,8 +15,7 @@ implicit none
   double precision                :: aa, bb, pi, hh
   double precision, dimension(NN) :: xx, yy
   double precision, external      :: fnval
-
-
+  
   aa = 0.0d0           ! double precision zero !!
   pi = dacos(-1.0d0)   ! more of the same...
   bb = 2.0d0*pi
@@ -32,27 +26,16 @@ implicit none
     xmct = xx - c* tval
     yy = funval(xmct)
   end do
-
-
+  
  ! "call" to printer helper
    call funval(NN, xx, yy)
 
  stop
  end program twave
-!-------------------------------------------------------------
 
 !----------------------------------------------------------------------
 ! double precision function funval(ax) -- evaluate a hardcoded function
 !                                        at the domain value ax
-
-! this is VERY different from a C-language function. fortran
-! has always used PASS-BY-REFERENCE by way of implicit ptrs
-! to function and subroutine parameters.. so notice that
-! "ax" and "bx" here are NOT strictly LOCAL...
-!  .....................program accordingly!
-!
-! NOTE: again, with the explicit type-ing -- "implicit none"
-!       below
 !   params:
 !              o ax -- double precision point of fn evaluation (in)
 !   return value:
