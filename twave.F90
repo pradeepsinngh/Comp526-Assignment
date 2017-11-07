@@ -11,7 +11,12 @@ program twave
 
 implicit none
 
-  double precision    :: tval, c, L
+  integer, parameter              :: NN = 100
+  integer                         :: ii
+  double precision                :: tval, c, L
+  double precision                :: aa, bb, pi, hh
+  double precision, dimension(NN) :: xx, yy
+  double precision, external      :: funval
 
 ! examine number of command line args, check for correct number 
   count = command_argument_count()
@@ -34,13 +39,6 @@ implicit none
    call get_command_argument(3,argu)
    read(argu,*) L
    print *, "double float conversion: ", L
-
-      
-  integer, parameter              :: NN = 100
-  integer                         :: ii
-  double precision                :: aa, bb, pi, hh
-  double precision, dimension(NN) :: xx, yy
-  double precision, external      :: fnval
   
   aa = 0.0d0           ! double precision zero !!
   pi = dacos(-1.0d0)   ! more of the same...
