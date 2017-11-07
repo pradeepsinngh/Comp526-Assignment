@@ -3,7 +3,7 @@
 ! Author: Pradeep Singh
 ! Date: 11/3/2017
 ! Language: Fortran
-! Description:
+! Description: To plot data for a time-shifted function f(x - ct) on [0,L]
 ! Program usage is as -
 
 program twave
