@@ -12,11 +12,10 @@ implicit none
 
       double precision    :: tval, c, L
 
-! examine number of command line args, check for correct number (see
-! above)
+! examine number of command line args, check for correct number 
       count = command_argument_count()
       if (count .ne. 3) then
-        print *, "usage: $ getargu chstring integer dfloat"
+        print *, "usage: $ getargu dfloat dfloat dfloat"
         stop
       end if
 
