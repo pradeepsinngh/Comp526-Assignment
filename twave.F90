@@ -20,6 +20,10 @@ implicit none
   pi = dacos(-1.0d0)   ! more of the same...
   bb = 2.0d0*pi
   hh = (bb-aa)/dfloat(NN-1)
+  
+  do ii=1,NN
+        xx(ii) = aa + (ii-1)*hh
+  end do
 
 ! heads up -- F90 array indexing starts w/ 1 (!!)
   do ii=1,NN
@@ -48,6 +52,8 @@ double precision function funval(xx)
 ! IMPORTANT -- double precision "funval" come "for free" w/ the
 !              function definition -- ie., as the NAME of the fn...
 
+  yy = FUNCHOICE(xx)
+  print *, xx, yy
 
 ! return "fnval", the sum
   return
