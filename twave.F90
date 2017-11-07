@@ -22,20 +22,20 @@ implicit none
   hh = (bb-aa)/dfloat(NN-1)
   
   do ii=1,NN
-        xx(ii) = aa + (ii-1)*hh
+    xx(ii) = aa + (ii-1)*hh
   end do
 
 ! heads up -- F90 array indexing starts w/ 1 (!!)
   do ii=1,NN
-    xmct = xx - c* tval
-    yy = funval(xmct)
+    xmct = xx(ii) - c * tval
+    yy(ii) = funval(xmct)
   end do
   
  ! "call" to printer helper
-   call funval(NN, xx, yy)
+  call funval(NN, xx, yy)
 
- stop
- end program twave
+  stop
+end program twave
 
 !----------------------------------------------------------------------
 ! double precision function funval(ax) -- evaluate a hardcoded function
