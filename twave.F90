@@ -21,6 +21,7 @@ implicit none
 
 ! processing for float arg -- convert to double precision
       call get_command_argument(1,argu)
+      read(argu,*) tval
       print *, "double float conversion: ", tval
 
 ! processing for float arg -- convert to double precision
@@ -76,7 +77,7 @@ double precision function funval(xx)
 ! IMPORTANT -- double precision "funval" come "for free" w/ the
 !              function definition -- ie., as the NAME of the fn...
 
-  yy = FUNCHOICE(xx)
+  yy = dsin(xx)
   print *, xx, yy
 
 ! return "fnval", the sum
