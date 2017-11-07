@@ -10,6 +10,31 @@ program twave
 
 implicit none
 
+      double precision    :: tval, c, L
+
+! examine number of command line args, check for correct number (see
+! above)
+      count = command_argument_count()
+      if (count .ne. 3) then
+        print *, "usage: $ getargu chstring integer dfloat"
+        stop
+      end if
+
+! processing for float arg -- convert to double precision
+      call get_command_argument(1,argu)
+      print *, "double float conversion: ", tval
+
+! processing for float arg -- convert to double precision
+      call get_command_argument(2,argu)
+      read(argu,*) c
+      print *, "double float conversion: ", c
+
+! processing for float arg -- convert to double precision
+      call get_command_argument(3,argu)
+      read(argu,*) L
+      print *, "double float conversion: ", L
+
+      
   integer, parameter              :: NN = 100
   integer                         :: ii
   double precision                :: aa, bb, pi, hh
@@ -18,7 +43,7 @@ implicit none
   
   aa = 0.0d0           ! double precision zero !!
   pi = dacos(-1.0d0)   ! more of the same...
-  bb = 2.0d0*pi
+  bb = L
   hh = (bb-aa)/dfloat(NN-1)
   
   do ii=1,NN
