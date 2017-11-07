@@ -11,29 +11,29 @@ program twave
 
 implicit none
 
-      double precision    :: tval, c, L
+  double precision    :: tval, c, L
 
 ! examine number of command line args, check for correct number 
-      count = command_argument_count()
-      if (count .ne. 3) then
-        print *, "usage: $ getargu dfloat dfloat dfloat"
-        stop
-      end if
+  count = command_argument_count()
+  if (count .ne. 3) then
+    print *, "usage: $ getargu dfloat dfloat dfloat"
+    stop
+   end if
 
 ! processing for float arg -- convert to double precision
-      call get_command_argument(1,argu)
-      read(argu,*) tval
-      print *, "double float conversion: ", tval
+   call get_command_argument(1,argu)
+   read(argu,*) tval
+   print *, "double float conversion: ", tval
 
 ! processing for float arg -- convert to double precision
-      call get_command_argument(2,argu)
-      read(argu,*) c
-      print *, "double float conversion: ", c
+   call get_command_argument(2,argu)
+   read(argu,*) c
+   print *, "double float conversion: ", c
 
 ! processing for float arg -- convert to double precision
-      call get_command_argument(3,argu)
-      read(argu,*) L
-      print *, "double float conversion: ", L
+   call get_command_argument(3,argu)
+   read(argu,*) L
+   print *, "double float conversion: ", L
 
       
   integer, parameter              :: NN = 100
