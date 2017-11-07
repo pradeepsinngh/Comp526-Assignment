@@ -11,6 +11,7 @@ program twave
 
 implicit none
 
+  character(len=32)               :: argu
   integer, parameter              :: NN = 100
   integer                         :: ii
   double precision                :: tval, c, L
