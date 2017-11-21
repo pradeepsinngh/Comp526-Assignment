@@ -1,33 +1,4 @@
-
-
-
-
-
-
-
-
-[singh@ophelia2 assign6]$ vi matvec.F90
-[singh@ophelia2 assign6]$ make
-gfortran -o matvec -lblas matvec.F90
-[singh@ophelia2 assign6]$ ./matvec
- Please enter matrix dimension n (matrix A is nxn): 
-999
- Time taken to compute matvecR() -- tR =  1.59979984E-02 seconds
- Time taken to compute matvecC() -- tC =  2.99900025E-03 seconds
- Time taken to compute  dgemv() -- tB =  3.00000235E-03 seconds
- ------------------------------------------------------------------------------
- Timing ratio for the row-based and column-based multiplication w.r.t dgemv() 
- ratR: tR/tB =   5.3326621    
- ratC: tC/tB =  0.99966598    
- Note: Ratio greater than one means that method is slower than dgemv() based multiplication
- --------------------------------------------------------------------------------
- The error in row-based multiplication method is: yR =    0.0000000000000000     
- The error in column-based multiplication method is: yC =    0.0000000000000000     
-[singh@ophelia2 assign6]$ vi matvec.F90
-[singh@ophelia2 assign6]$ make
-gfortran -o matvec -lblas matvec.F90
-[singh@ophelia2 assign6]$ ./matvec
- Please enter matrix dimension n (matrix A is nxn): 
+xn): 
 934 
  Time taken to compute matvecR() -- tR =  1.39980000E-02 seconds
  Time taken to compute matvecC() -- tC =  2.99999863E-03 seconds
