@@ -6,29 +6,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 [singh@ophelia2 assign6]$ vi matvec.F90
 [singh@ophelia2 assign6]$ make
 gfortran -o matvec -lblas matvec.F90
