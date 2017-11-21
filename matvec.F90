@@ -1,10 +1,3 @@
-Last login: Tue Nov 21 01:26:34 on ttys000
-Pradeeps-MacBook-Pro:~ pradeepsingh$ ssh -l singh ophelia2.sdsu.edu
-ssh: connect to host ophelia2.sdsu.edu port 22: Operation timed out
-Pradeeps-MacBook-Pro:~ pradeepsingh$ ssh -l singh ophelia2.sdsu.edu
-singh@ophelia2.sdsu.edu's password: 
-Last login: Tue Nov 21 00:23:20 2017 from ip68-8-48-31.sd.sd.cox.net
-[singh@ophelia2 ~]$ clear
 
 
 
@@ -23,38 +16,6 @@ Last login: Tue Nov 21 00:23:20 2017 from ip68-8-48-31.sd.sd.cox.net
 
 
 
-
-
-
-
-
-
-
-
-
-
-[singh@ophelia2 ~]$ cd assign6
-[singh@ophelia2 assign6]$ ls
-makefile  matvec  matvec.F90
-[singh@ophelia2 assign6]$ make
-gfortran -o matvec -lblas matvec.F90
-[singh@ophelia2 assign6]$ ./matvec
- Please enter matrix dimension n (matrix A is nxn): 
-831
- Time taken to compute matvecR() -- tR =  7.99900014E-03 seconds
- Time taken to compute matvecC() -- tC =  2.00000033E-03 seconds
- Time taken to compute  dgemv() -- tB =  9.98999923E-04 seconds
- ------------------------------------------------------------------------------
- Timing ratio for the row-based and column-based multiplication w.r.t dgemv() 
- ratR: tR/tB =   8.0070076    
- ratC: tC/tB =   2.0020025    
- Note: Ratio greater than one means that method is slower than dgemv() based multiplication
- --------------------------------------------------------------------------------
- The error in row-based multiplication method is: yR =    0.0000000000000000     
- The error in column-based multiplication method is: yC =    0.0000000000000000     
-[singh@ophelia2 assign6]$ lear
--bash: lear: command not found
-[singh@ophelia2 assign6]$ clear
 
 
 
