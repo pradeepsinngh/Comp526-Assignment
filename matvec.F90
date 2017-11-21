@@ -1,7 +1,3 @@
-
-
-
-
 !
 ! File Name: matvec.F90
 ! Author: Pradeep Singh
