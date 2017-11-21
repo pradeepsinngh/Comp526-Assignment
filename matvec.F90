@@ -387,6 +387,141 @@ else
   print *, "------------------------------------------------------------------------------"
   print *, "Timing ratio for the Row and Column based multiplication w.r.t dgemv(): "
   print *, "ratR: tR/tB =", tR/tB !ratio of matvecR() time over dgemv() time
+  print *, "ratC: tC/tB =", tC/tB !ratio of matvecC() time over dgemv() time
+  print *, "Note: Ratio greater than one means that method is slower than dgemv() based multiplication."
+  print *, "--------------------------------------------------------------------------------"
+end if
 
+!--------------------------------------------------------------------------
+! Calculate and print the Error
+!--------------------------------------------------------------------------
+
+! use infnorm() to compute and print error estimates (error norms)
+print *, "The error in row-based multiplication method is: yR =",infnorm (n, (yR - yB))
+print *, "The error in column-based multiplication method is: yC =", infnorm(n, (yC-yB))
+
+! print result vector yB from the dgemv() call when n is sufficiently small
+if (n .lt. 10) then
+  write(*,*) "result vector yB:"
+  write(*,*) (yB(kk),kk=1,n)
+end if
+
+! deallocate() storage for A, x, and the y's
+deallocate(A)
+deallocate(x)
+deallocate(yR)
+deallocate(yC)
+deallocate(yB)
+
+end program
+
+!-----------------------------------------------------------------------
+! matvecC -- Column based Matrix - Vector Multiplication
+!-----------------------------------------------------------------------
+! matvecC() is a subroutine that performs matrix-vector multiplication
+!
+!                 o integer n -- number of rows=cols of A
+!                 o double precision A(n,n), x(n), yC(n)
+!                 o returns yC = A*x computed column-wise
+
+subroutine matvecC(n,A,x,yC)
+implicit none
+
+integer, intent(in)     :: n
+integer                 :: j !counter variable
+double precision        :: A(n,n), x(n), yC(n)
+
+! loop over the columns of A
+yC = x(1)*A(:,1) !initialize first value
+do j=2,n
+  yC = yC + x(j)*A(:,j)
+end do
+
+return
+
+end subroutine matvecC
+
+!----------------------------------------------------------------------------
+! matvecR -- Row based Matrix - Vector Multiplication
+!----------------------------------------------------------------------------
+! matvecR() is a subroutine that performs matrix-vector multiplication as a
+! row-based method
+!
+!                  o integer n -- number of rows=cols of A
+!                  o double precision A(n,n), x(n), yR(n)
+!                  o returns yR = A*x computed row-wise
+
+subroutine matvecR(n, A, x, yR)
+implicit none
+
+integer, intent(in)     :: n
+integer                 :: i, j !counter variables
+double precision        :: A(n,n), x(n), yR(n)
+
+! loop over the rows of A
+!yR = 0 !initialize first value
+do i=1,n
+yR(i) = 0
+  do j=1,n
+    yR(i) = yR(i) + x(j)*A(i,j)
+  end do
+end do
+
+return
+
+end subroutine matvecR
+
+
+! loadvalues
+!--------------------------------------------------------------------------------------
+! loadvalues() is a subroutine used inorder to initialize entires in A and x to actual
+! float point values which can be used to predict and test accuracy for matrix-vector results
+!
+!                  o integer n -- number of cols=rows of A
+!                  o double precision -- A(n,n)
+!                  o double precision -- x(n)
+!                  o returns A and x with floating point values
+
+      subroutine loadvalues(n, A, x)
+      implicit none
+
+      integer           :: n,i, j
+      double precision  :: A(n,n), x(n)
+
+!  load the floating point values in the matrix A and vector x
+     do i=1,n
+          x(i) = 1.0d0
+    do j=1,n
+           A(i,j) = (i+1)*(j+1)/dble(n)
+
+          end do
+     end do
+      return
+      end subroutine loadvalues
+
+
+!-----------------------------------------------------------------------
+! infnorm
+!-----------------------------------------------------------------------
+! infnorm() computes the norm of a vector. The result is the size of the
+! max vector element in absolute value and returns the norm of a given vector.
+!
+!                 o integer n -- length of vector xx
+!                 o double precision xx(n)
+!                 o double precision function infnorm(n,xx)
+!                 o maxval() -- computes maximum element value
+!                 o dabs() -- computes absolute value
+!                 o returns computed function infnorm
+
+double precision function infnorm(n, xx)
+implicit none
+
+integer, intent(in)           :: n
+double precision, intent(in)  :: xx(n)
+
+infnorm = maxval(dabs(xx))
+
+return
+end function infnorm
 
 
