@@ -15,6 +15,7 @@
 # if the ARGV array has less than 1 element (is empty)
 # then improper program usage -- the program name DOES NOT
 # enter into command line args calculations in PERL...
+
   if ( @ARGV < 1 ) {
     print $newline;
     print("usage: search.pl file-list\n");
