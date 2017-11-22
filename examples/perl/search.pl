@@ -41,6 +41,7 @@
       }
       $ic++;
     }
+    
 # remember list of files where we had a hit in an ARRAY @files
     if ($iflag == 1) {
       $files[$ifiles++] = "$file";  #build array element-wise
