@@ -1,0 +1,23 @@
+#! /usr/bin/perl
+# try.pl -- by James Otto -- trys to echo a file on disk....
+#
+# check for correct number of input parameters
+  $size = @ARGV;
+  if ( $size != 1) {
+    print("usage: $ try.pl filename\n");
+    exit 0;
+  }
+  $fname = $ARGV[0];   # 1st (only) command-line argument...
+
+  if ( ! open(TRY, "$fname") ) {
+    print("try.pl: could not open file: $fname\n");
+    print("------------------------------------------\n");
+    print("usage: % try.pl file-name\n"); exit -1;
+  }
+# get the names...
+  @lines = <TRY>;
+  foreach (@lines) {
+    print;
+  }
+
+  exit 0;
