@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-# a Perl program "substitute.pl" -- by James Otto, 11/27/17
+# a Perl program "substitute.pl".
 # it opens a FILE named on the program command line and looks for
 # occurrences of the fixed string "SDSU"; it echos lines from the
 # file to STDOUT; if the line has a match, the match is substituted by
