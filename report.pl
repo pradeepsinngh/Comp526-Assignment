@@ -94,7 +94,7 @@ while (<INFILE>) {
          push @{$search_string}, $curr_line_index;
       }
    }
-$curr_line_index++;     # Incrementing line count
+   $curr_line_index++;     # Incrementing line count
 }
 
 close(INFILE); # Close the file
@@ -134,6 +134,3 @@ foreach $string (@strings_to_search){
 
    print(STDOUT "\n************************************************************************************* \n");
 }
-
-
-
