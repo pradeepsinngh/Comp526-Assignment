@@ -1,5 +1,5 @@
 #! /usr/bin/perl
-# hash.pl -- by James Otto -- scan a names file with format:
+# hash.pl -- scan a names file with format:
 #  lname1:fname1:string1             (so lastname:firstname:string...)
 #  lname2:fname2:string2  ... etc.
 #
