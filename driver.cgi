@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 
-# 12/18/17 -- Shivam Garg, driver.cgi
+# 12/18/17 -- 
 
 
 print "Content-type: text/html; charset=iso-8859-1", "\n\n";
