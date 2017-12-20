@@ -1,0 +1,22 @@
+#18/12/17--Shivam Garg--gnu.batch
+#
+#		This gnuplot batch file converts data.t file into 
+#		a GNU plot and save it as wave.png.
+#		This file assumes data.t is in the ./results/ folder.
+#
+#		This file can be run seperately also on the command 
+#		line by typing:
+#			$gnuplot gnu.batch
+#
+
+set xrange [-1.0:10]
+set yrange [-20:20]
+set xzeroaxis linetype 3
+set yzeroaxis linetype 3
+
+set terminal png
+
+set output "wave.png"
+
+#Need to change the title of the file later on
+plot "./results/data.t" title "f(x-ct) with f(x)=sin(x)" w lines
