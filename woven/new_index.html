@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+function validate(argument){
+    if(document.getElementById("sine").checked){
+	sineL = document.getElementById("sineParamL").value;
+
+	if(document.getElementById("sineParamL").value < 0)
+		check("Clear Form");
+    }
+    else if(document.getElementById("gaussian").checked){
+	gaussL = document.getElementById("gaussianParamL").value;
+	gaussAlpha = document.getElementById("gaussianParamAlpha").value;
+	gaussBeta = document.getElementById("gaussianParamBeta").value;
+	gaussSigma = document.getElementById("gaussianParamSigma").value;
+ 
+	if((gaussL<=0 || gaussL>10) || (gaussL<=gaussBeta || gaussBeta<=0) || gaussSigma<=0)
+		check("Clear Form");
+    }
+    else if(document.getElementById("cubic").checked){
+	cubicL = document.getElementById("cubicParamL").value;
+	cubicDelta = document.getElementById("cubicParamDelta").value;
+
+	if((cubicL<=0 || cubicL>10) || (cubicDelta<=0 || cubicDelta>=cubicL))
+		check("ClearForm");
+    }
+    else{
+	check("ClearForm");
+    }
+}
+
+
+function check(option) {
+    if(option == "sine"){
+	document.getElementById("div1").style.display="block";
+	document.getElementById("div2").style.display="none";
+	document.getElementById("div3").style.display="none";
+    }
+    else if(option == "gaussian"){
+	document.getElementById("div1").style.display="none";
+	document.getElementById("div2").style.display="block";
+	document.getElementById("div3").style.display="none";
+    }
+    else if(option == "cubic"){
+	document.getElementById("div1").style.display="none";
+	document.getElementById("div2").style.display="none";
+	document.getElementById("div3").style.display="block";
+    }
+    else if(option == "Clear Form"){
+	document.getElementById("div1").style.display="none";
+	document.getElementById("div2").style.display="none";
+	document.getElementById("div3").style.display="none";	
+    }
+}
+</script>
+</head>
+<body>
+
+<form action="driver.cgi" method="GET">
+
+<hr><strong>
+Welcome to Shivam Garg's COMPE 526 project page!
+</strong>
+<br>
+Project problem statement can be found <a href = "http://ophelia2.sdsu.edu/comp526/final.pdf" target="_blank">here</a>.<hr>
+
+<br>
+<strong><u>Introduction</u></strong><br>
+<br>
+The goal of this project is to generate a full visulaization of the solution of the vibrating string problem based on variety of problem input parameters.<br>
+For a well-behaved <i>initial string displacement function f(x)</i> on the interval [0,L] <i>with f(0) = f(L) = 0</i>, the vibrating string problem can be written as,<br><br>
+<center><img src="ImagesToShow/Vibrating String Problem.png" alt="Wave Equations"><br><br></center>
+This project solves the wave equation with zero initial velocity and nonzero initial displacement based on d'Alembert formula: <b>u(x,t) = (f(x+ct)+f(x-ct))/2 </b>.<br><br>
+
+The displacement functions used in this project are: sin, gaussian, and cubic (Corresponding images are shown below).
+<br><br>
+<center><img src="ImagesToShow/Img1.png" alt="Sine Function">&nbsp&nbsp
+<img src="ImagesToShow/Img2.png" alt="Gaussian Function">&nbsp&nbsp
+<img src="ImagesToShow/Img3.png" alt="Cubic Function"></center>
+<br>
+
+<hr>
+<p><b>Please choose a function to plot</b></p>
+
+<form>
+
+<input type="radio" name="command" onclick="check(this.value)" value="sine">Sine<br>
+<div id="div1" style='display: none;'>
+ &nbsp Choose value of: L <input type="number" name="sineL" id="sineParamL">.
+</div>
+
+<input type="radio" name="command" onclick="check(this.value)" value="gaussian">Gaussian<br>
+<div id="div2" style='display: none;'>
+ &nbsp Choose values of: L <input type="number" name="gaussianL" id="gaussianParamL">,
+ &nbsp alpha <input type ="number" name="paramAlpha" id="gaussianParamAlpha">,
+ &nbsp beta <input type="number" name="paramBeta" id="gaussianParamBeta">,
+ &nbsp sigma <input type="number" name="paramSigma" id="gaussianParamSigma">.
+</div>
+
+<input type="radio" name="command" onclick="check(this.value)" value="cubic">Cubic<br>
+<div id="div3" style='display: none;'>
+ &nbsp Choose values of: L <input type="number" name="cubicL" id="cubicParamL">,
+ &nbsp delta<input type ="number" name='paramDelta' id="cubicParamDelta">.
+</div>
+<br><br>
+
+<tr>
+<td><input type="submit" value="Submit Form">
+    <input type="reset" name="reset" value="Clear Form" onclick="check(this.value)">
+</td>
+</tr>
+
+</form>
+
+</body>
+</html>
