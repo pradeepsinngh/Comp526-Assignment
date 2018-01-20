@@ -52,7 +52,7 @@ void fprime(int size, float hh, float fvals[], float fpvals[]);
  * This function prints the grid points and the derivative values
  * of the chosen function at those grid points.
  */
-
+ 
 void printfnvals(FILE *fptr, int nvals, float xvals[], float yvals[]);
 
 /* Declaring function named quadratic.
