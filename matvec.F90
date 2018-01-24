@@ -46,7 +46,7 @@
 !    double precision x(:) -- x vector
 !    double precision yR(:), yC(:), yB(:) -- results for row, column, dgemv
 !    double precision infnorm -- infinity norm function
-
+!
 !-----------------------------------------------------------------------
 ! Program starts here
 !-----------------------------------------------------------------------
