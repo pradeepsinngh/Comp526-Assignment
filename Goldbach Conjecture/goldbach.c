@@ -33,7 +33,7 @@
                       Step1: make             // complies code
                       Step2: ./goldbach
 
-  */
+*/
 
 /* Include following header files */
 
@@ -52,7 +52,6 @@ _Bool isodd(int M);
 /* Declaring function named "isprime".
  * This function tells whether the given integer is prime or not.
  */
-
 
 _Bool isprime(int M);
 
@@ -116,7 +115,6 @@ int main(void){
 }
 
 
-
 /*------------------ Function's definition starts from here---------------------------- */
 
 /* work(N) - Helper function for reading and stroing the input
@@ -132,8 +130,7 @@ int main(void){
 
             Output: Prints the result, whether the given number is
                     goldbach or not, along with the reason.
- */
-
+*/
 
 int work (int N){
 
@@ -149,7 +146,7 @@ int work (int N){
     fscanf(fptr, "%d", &integers[i]);
 
     isGoldbach(integers[i],&reason[i][0],&reason[i][1],&reason[i][2]);
-  }
+}
 
   fclose(fptr);
 
@@ -178,8 +175,6 @@ _Bool isodd(int M){
     return 0;
 
 }
-
-
 
 /* This function returns 1 if M is prime, otherwise 0.
  * function: _Bool isprime(int M);
@@ -253,7 +248,6 @@ void isGoldbach(int M, int *passfail, int *prime1, int *prime2 ){
 
     *passfail=0;      // return 0;
 }
-
 
 
 /* function to print the number and it's result (whether it's goldbach or not)
