@@ -1,5 +1,5 @@
-! funval() -- James Otto, 12/14/17 Ver 2.0 -- function for the extension 
-! of the displacement function in the wave equation outside the interval 
+! funval()  -- 
+! function for the extension of the displacement function in the wave equation outside the interval 
 ! [0,L] --> [-2L,3L] facilitating the use of the d'Alembert formula for a 
 ! full time period -- t in [0,2L/c]
 !
