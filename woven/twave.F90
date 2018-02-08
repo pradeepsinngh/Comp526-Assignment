@@ -1,4 +1,4 @@
-! twave.F90 -- Shivam Garg, 12/18/2017 --
+! twave.F90 -- 12/18/2017 --
 !
 !			This program requires three double precision inputs ('tval', 'c', and 'L').
 !			These variables are used to shift the function values using the formula:
