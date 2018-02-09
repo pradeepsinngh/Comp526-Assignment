@@ -18,7 +18,7 @@
 !              - funval() serves as a proxy for f(x) = sin(x); but it may also be redirected to
 !                evaluate a different function by modifying the preprocessor macro and re-compiling
 !                the program.
-
+!
 ! Program usage is as:
 !                      $ make
 !                      $ ./twave tval c L
