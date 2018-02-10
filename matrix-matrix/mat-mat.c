@@ -48,3 +48,46 @@ int main()
    result = (int **) malloc(1000 * sizeof(int *));     /* allocating memory to rows */
    for (i=0;i<1000;i++)                                /* allocating memory to col */
        result[i] = (int *) malloc(1000 * sizeof(int));
+/* Generating matrix elements with random numbers between 0 and 1 */
+   srand(time(NULL));                                 /* srand() sets the seed for rand() */
+   for (i = 0; i < 1000; i++) {
+      for (j = 0; j < 1000; j++) {
+         mat1 [i][j] = rand() % 2;                    /* rand() generates the random number */
+         mat2 [i][j] = rand() % 2;
+      }
+   }
+
+/* Nested loops to compute the product of 2 matrices. Result is stored in result matrix */
+   for (i = 0; i < 1000; i++) {
+       for (j = 0; j < 1000; j++) {
+           for (k =0; k < 1000; k++) {
+               result[i][j] = 0;
+               result[i][j] = result[i][j] + mat1[i][k] * mat2[k][j];
+           }
+       }
+   }
+
+   gettimeofday(&end, NULL);    /* function to measure execution time */
+
+/* Print the time elapsed */
+   printf("Time Elapsed: %fs \n", ((end.tv_sec - start.tv_sec) * 1000000 + (end.tv_usec - start.tv_usec)/1000000.0));
+
+/* Free the allocated memory for all three matrices using free() */ 
+   for (i = 0; i < 1000; i++){
+       free(mat1[i]);
+       free(mat2[i]);
+       free(result[i]);
+   }
+
+   free(mat1);
+   free(mat2);
+   free(result);
+
+   mat1 = NULL;
+   mat2 = NULL;
+   result = NULL;
+
+   return 0;
+}
+
+ 
