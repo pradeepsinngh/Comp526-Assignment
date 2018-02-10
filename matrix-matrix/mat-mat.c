@@ -1,5 +1,5 @@
 /*
- * Allocating memory dynamically to generate 1000 X 1000 Matrix
+ * Allocating memory dynamically to generate 1000 X 1000 Matrix and then matrix - matrix multiplication
  *
  */
 
