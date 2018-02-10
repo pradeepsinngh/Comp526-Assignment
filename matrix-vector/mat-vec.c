@@ -1,6 +1,8 @@
 /*
- * Matrix - Vector Multiplication
- *
+ * File Name: mat-vec.c
+ * Author: Pradeep Singh
+ * Date: 6/2/2018
+ * Description: Matrix - Vector Multiplicat
  */
 
 #include <stdio.h>
@@ -50,16 +52,23 @@ int main()
    }
 
   gettimeofday(&end, NULL);
-
+/* estimate the time taken by program to multiply mat and vec */
   printf("%i \n", ( end.tv_usec - start.tv_usec));
-  
+
+  /* free the allocated memory */
+  /* for (i = 0; i < 999; i++) {
+       free(result[i]);
+       free(mat[i]);
+       }
+  */
+
   free(mat);
   free(vec);
   free(result);
-  
-  mat = NULL;
-  vec = NULL;
-  result = NULL;
-  
-  return 0;
+
+   mat = NULL;
+   vec = NULL;
+   result = NULL; 
+
+   return 0;
 } 
