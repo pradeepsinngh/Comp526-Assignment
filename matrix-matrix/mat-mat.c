@@ -1,10 +1,9 @@
-
 /*
  * File Name: mat-mat.c
  * Author: Pradeep Singh
  * Date : 2/7/2018
  * Description: Matrix - Matrix Multiplication
- *              This program generate two 1000 X 1000 matrices with random numbers between 0 and 1.
+ *              This program generate two 1000 X 1000 matrices with random numbers between 0 and 1
  *              using function srand() and rand(). We use malloc() to dynamically allocate memory for
  *              all the matrices. And, finally product of two matrices is computed using nested for loops
  *              and result is stored in result matrix. Once computation is done, we de-allocate the memory
