@@ -54,10 +54,8 @@ int main()
    srand(time(NULL));                                 /* srand() sets the seed for rand() */
    for (i = 0; i < 1000; i++) {
       for (j = 0; j < 1000; j++) {
-         mat1 [i][j] = (float) rand()/ (float) (RAND_MAX/a);
+         mat1 [i][j] = (float) rand()/ (float) (RAND_MAX/a);   /* rand() generates the random number */
          mat2 [i][j] = (float) rand()/ (float) (RAND_MAX/a);
-     /*    mat1 [i][j] = rand() % 2;  */                  /* rand() generates the random number */
-     /*    mat2 [i][j] = rand() % 2; */
       }
    }
 
