@@ -35,21 +35,18 @@ int main()
 /* Dynamic memory allocation for Matrices*/
 /* Allocate memory for matrix rows and columns = 1000 X 1000 */
 
-/* Matrix -- 1 */
+/* Allocating memory to */
    mat1 = (float **) malloc(1000 * sizeof(float *));       /* allocating memory to rows */
-   for (i=0;i<1000;i++)                                /* allocating memory to col */
-       mat1[i] = (float *) malloc(1000 * sizeof(float));
-
-/* Matrix -- 2 */
    mat2 = (float **) malloc(1000 * sizeof(float *));       /* allocating memory to rows */
-   for (i=0;i<1000;i++)                                /* allocating memory to col */
-       mat2[i] = (float *) malloc(1000 * sizeof(float));
-
-/* Result Matrix */
    result = (float **) malloc(1000 * sizeof(float *));     /* allocating memory to rows */
-   for (i=0;i<1000;i++)                                /* allocating memory to col */
+   
+/* Allocating memory to cols for all 3 matrices */
+   for (i=0;i<1000;i++) {                                 /* */
+       mat1[i] = (float *) malloc(1000 * sizeof(float));
+       mat2[i] = (float *) malloc(1000 * sizeof(float));
        result[i] = (float *) malloc(1000 * sizeof(float));
-
+  }
+   
 /* Generating matrix elements with random numbers between 0 and 1 */
    srand(time(NULL));                                 /* srand() sets the seed for rand() */
    for (i = 0; i < 1000; i++) {
