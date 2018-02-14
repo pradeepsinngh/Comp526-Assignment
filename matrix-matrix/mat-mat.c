@@ -35,13 +35,13 @@ int main()
 /* Dynamic memory allocation for Matrices*/
 /* Allocate memory for matrix rows and columns = 1000 X 1000 */
 
-/* Allocating memory to */
-   mat1 = (float **) malloc(1000 * sizeof(float *));       /* allocating memory to rows */
-   mat2 = (float **) malloc(1000 * sizeof(float *));       /* allocating memory to rows */
-   result = (float **) malloc(1000 * sizeof(float *));     /* allocating memory to rows */
+/* Allocating memory to rows of all 3 matrices*/
+   mat1 = (float **) malloc(1000 * sizeof(float *));
+   mat2 = (float **) malloc(1000 * sizeof(float *));
+   result = (float **) malloc(1000 * sizeof(float *));
    
 /* Allocating memory to cols for all 3 matrices */
-   for (i=0;i<1000;i++) {                                 /* */
+   for (i=0;i<1000;i++) {
        mat1[i] = (float *) malloc(1000 * sizeof(float));
        mat2[i] = (float *) malloc(1000 * sizeof(float));
        result[i] = (float *) malloc(1000 * sizeof(float));
@@ -55,7 +55,6 @@ int main()
          mat2 [i][j] = (float) rand()/ (float) (RAND_MAX/a);
       }
    }
-
 
 /* Nested loops to compute the product of 2 matrices. Result is stored in result matrix */
    for (i = 0; i < 1000; i++) {
