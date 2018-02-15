@@ -25,7 +25,6 @@
 
 int main()
 {
-
    float **mat, *vec, *result;
    float a = 1.0;
    int i, j;                                            /* define varibales */
