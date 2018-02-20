@@ -33,22 +33,22 @@ int main()
    struct timeval start, end;
    gettimeofday(&start, NULL);                         /* start measuring time */
 
-/* Dynamic memory allocation for Matrices*/
-/* Allocate memory for matrix rows and columns = 1000 X 1000 */
+   /* Dynamic memory allocation for Matrices*/
+   /* Allocate memory for matrix rows and columns = 1000 X 1000 */
 
-/* Allocating memory to rows of all 3 matrices */
+   /* Allocating memory to rows of all 3 matrices */
    mat1 = (float **) malloc(1000 * sizeof(float *));
    mat2 = (float **) malloc(1000 * sizeof(float *));
    result = (float **) malloc(1000 * sizeof(float *));
 
-/* Allocating memory to cols of all 3 matrices */
+   /* Allocating memory to cols of all 3 matrices */
    for (i=0;i<1000;i++){
        mat1[i] = (float *) malloc(1000 * sizeof(float));
        mat2[i] = (float *) malloc(1000 * sizeof(float));
        result[i] = (float *) malloc(1000 * sizeof(float));
    }
 
-/* Generating matrix elements with random numbers between 0 and 1 */
+   /* Generating matrix elements with random numbers between 0 and 1 */
    srand(time(NULL));                                         /* srand() sets the seed for rand() */
    for (i = 0; i < 1000; i++) {
       for (j = 0; j < 1000; j++) {
@@ -57,7 +57,7 @@ int main()
       }
    }
 
-/* Nested loops to compute the product of 2 matrices. Result is stored in result matrix */
+   /* Nested loops to compute the product of 2 matrices. Result is stored in result matrix */
    for (i = 0; i < 1000; i++) {
        for (j = 0; j < 1000; j++) {
            for (k =0; k < 1000; k++) {
@@ -69,10 +69,10 @@ int main()
 
    gettimeofday(&end, NULL);    /* function to measure execution time */
 
-/* Print the time elapsed */
+   /* Print the time elapsed */
    printf("\n Time Elapsed: %fs \n", ((end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec)/1000000.0));
 
-/* Free the allocated memory for all three matrices using free() */  
+   /* Free the allocated memory for all three matrices using free() */  
    for (i = 0; i < 1000; i++){
        free(mat1[i]);
        free(mat2[i]);
