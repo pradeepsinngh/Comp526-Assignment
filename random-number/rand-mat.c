@@ -1,6 +1,7 @@
 /*
- * Random Matrix
- *
+ * File name: rand-mat.c
+ * Author: Pradeep Singh
+ * Description: Random Matrix
  */
 
 #include <stdio.h>
