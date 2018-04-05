@@ -1,6 +1,7 @@
 /*
- *
- *
+ * File name: rand-vec.c
+ * Author: Pradeep Singh
+ * Description: Random Matrix
  */
 
 #include <stdio.h>
