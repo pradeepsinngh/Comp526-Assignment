@@ -149,7 +149,6 @@ void fprime(int size, float hh, float fvals[], float fpvals[]){
   }
 }
 
-
 /* This function prints grid points and their derivative values in the file
  * function: void printfnvals(FILE *fptr, int nvals, float xvals[], float fpvals[])
 
